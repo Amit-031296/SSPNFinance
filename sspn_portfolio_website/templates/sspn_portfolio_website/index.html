@@ -1,0 +1,252 @@
+{% extends 'sspn_portfolio_website/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Slider -->
+<div class="no-padding">
+    <div class="slider slider-dark-arrow slider-home-1">
+        <div class="fullwidthbanner-container">
+            <div id="revolution-slider-home-1">
+                <ul>
+                    <!-- SLIDE  -->
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" data-delay="4000">
+                        <!-- MAIN IMAGE -->
+                        <img src="{% static 'sspn_portfolio_website/images/Slider/vision_1.png' %}" alt="slidebg1" data-bgfit="cover" data-bgposition="center" data-bgrepeat="no-repeat">
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr stt h1-text" data-x="0" data-y="381" data-speed="400" data-start="1400" data-easing="easeInOut">Our Vision
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption sfr stb h3-text" data-x="0" data-y="455" data-speed="400" data-start="1700" data-easing="easeInOut" style="max-width: 565px">
+                            To be the India’s trusted financial services provider to over 1 million customers by 2025.
+                        </div>
+
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption sfr stb group-btn-slider" data-x="0" data-y="580" data-speed="400" data-start="1900" data-easing="easeInOut"> <a href="{% url 'sspn_portfolio_website:product_list' %}" class="ot-btn large-btn btn-rounded btn-main-color btn-1">Our Products</a>
+                        </div>
+                    </li>
+                    <!-- SLIDE  -->
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" data-delay="6000">
+                        <!-- MAIN IMAGE -->
+                        <img src="{% static 'sspn_portfolio_website/images/Slider/bg4.png' %}" alt="slidebg1" data-bgfit="cover" data-bgposition="center" data-bgrepeat="no-repeat">
+
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption sfr stt h1-text" data-x="0" data-y="381" data-speed="400" data-start="1400" data-easing="easeInOut">Our Mission
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption sfr stb h3-text" data-x="0" data-y="455" data-speed="400" data-start="1700" data-easing="easeInOut" style="max-width: 565px">
+                            To provide affordable and accessible financial services which are process Centric, technology enabled and people oriented
+                        </div>
+                        <!-- LAYER NR. 4 -->
+                        <div class="tp-caption sfr stb group-btn-slider" data-x="0" data-y="580" data-speed="400" data-start="1900" data-easing="easeInOut"> <a href="{% url 'sspn_portfolio_website:index' %}" class="ot-btn large-btn btn-rounded btn-main-color btn-1" style="background-color: #df2e1b">Our Products</a>
+                        </div>
+                    </li>
+                    <!--SLIDE-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div><!-- Slider Revolution End -->
+
+<!-- Component Courter Up -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="counter-up counter-up-style-1 text-center">
+                    <h2>We are semi urban and rural area focused <br>NBFC Microfinance company</h2>
+                    <p>SSPN is working dedicatedly towards offering micro to small ticket sized secured and unsecured loans to help small vendors, small business owners, it also caters to the wide range of clients opting to buy electrical devices, households, electronics ,automobile etc. up to specified ticket size. Going forward the company is planning to provide income generation loans of medium ticket size and business loans . This will be mainly cater to the large unbanked population of India.</p>
+                </div><!-- End counter up -->
+            </div> <!-- End cold -->
+        </div><!-- End row -->
+    </div><!-- End container -->
+</section><!-- End Section -->
+
+<section class="our-process bg-dark no-padding">
+    <div class="row">
+        <div class="process-warp">
+            <div class=" col-sm-6 col-md-6 col-lg-6 img-demo-our-process">
+                <img src="{% static 'sspn_portfolio_website/images/Process/1.jpg' %}" class="img-responsive" alt="Image">
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-6 accordion-process padding-top-70 padding-bottom-50">
+                <div class="accordion-warp">
+                    <h2 class="title text-white">We are SSPN Finance</h2>
+                    <div class="clearfix"></div>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Our Vision</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="accordion-content">
+                                        <p>To be the India’s trusted financial services provider to over 1 million customers by 2025. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">Our Mission</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="accordion-content">
+                                        <p>To provide affordable and accessible financial services which are process Centric, technology enabled and people oriented </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Core Values</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="accordion-content">
+                                        <p>We will have standardised processes as this will enable us to reach out to the most customers cost effectively. We will foster innovation but in a way that ensures consistent quality. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End panel group -->
+                </div>
+            </div> <!-- End Col -->
+        </div>
+    </div> <!-- End Row -->
+</section> <!-- End container -->
+
+<!-- Component Thumbnail Left Icon SVG -->
+<div class="padding-top-70 padding-bottom-70">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="counter-up counter-up-style-1 text-center">
+                    <h2 class="title">Our Products</h2>
+                </div>
+                <article class=" col-sm-6 col-md-4 thumbnail-style thumbnail-icon-item text-center no-margin">
+                    <div class="thumbnail">
+                        <img src="{% static 'sspn_portfolio_website/images/Services/6.png' %}" alt="">
+                        <div class="caption">
+                            <h4>Microfinance</h4>
+                            <p>
+                                We offer Microfinance Loans to women living within 1 kilometer of each other & can gurantee.
+                                <br><a class="learn-more" href="{% url 'sspn_portfolio_website:microfinance' %}" style="color: #df2e1b"><i class="fa fa-caret-right" aria-hidden="true"></i> Learn More
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </article><!-- End article -->
+               
+                <article class=" col-sm-6 col-md-4 thumbnail-style thumbnail-icon-item text-center no-margin">
+
+                    <div class="thumbnail">
+                        <img class="img-icon-thumbnail" src="{% static 'sspn_portfolio_website/images/Services/5.png' %}" alt="">
+                        <div class="caption">
+                            <h4>Instant Salary</h4>
+                            <p>We offer insta cash loan on your day to day needs based on your salary by our application Insta cash.
+                                <br><a class="learn-more" href="{% url 'sspn_portfolio_website:instantsalary' %}" style="color: #df2e1b"><i class="fa fa-caret-right" aria-hidden="true"></i> Learn More
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </article><!-- End article -->
+                <article class=" col-sm-6 col-md-4 thumbnail-style thumbnail-icon-item text-center no-margin">
+
+                    <div class="thumbnail">
+                        <img class="img-icon-thumbnail" src="{% static 'sspn_portfolio_website/images/Services/3.png' %}" alt="">
+                        <div class="caption">
+                            <h4>Consumer Finance</h4>
+                            <p>
+                                We offer consumer durable loans for electronics like TV, Refrigerators, Moblie and many more .
+                                <br><a class="learn-more" href="{% url 'sspn_portfolio_website:consumerfinance' %}" style="color: #df2e1b"><i class="fa fa-caret-right" aria-hidden="true"></i> Learn More</a>
+                            </p>
+                        </div>
+                    </div>
+                </article><!-- End article -->
+            </div>
+        </div><!-- End Row -->
+    </div><!-- End container -->
+</div> <!-- End section -->
+
+<!--   Testimonial start-->
+<section class="bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="counter-up counter-up-style-1 text-center">
+                    <h2 class="title">Testimonials</h2>
+                    <div class="customNavigation">
+                        <a class="btn prev-testimonials-3-columns"><i class="fa fa-angle-left"></i></a>
+                        <a class="btn next-testimonials-3-columns"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div id="owl-testimonials-3-columns" class="owl-carousel owl-theme owl-testimonials-3-columns clearfix">
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/1.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">Linda Campbell</h4>
+                        <span class="job-testimonials-3-columns">CEO Finanace Theme Group</span>
+                    </div><!-- end item -->
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/2.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">John Walker</h4>
+                        <span class="job-testimonials-3-columns">Photographer</span>
+                    </div><!-- end item -->
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/3.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">Cheryl Cruz</h4>
+                        <span class="job-testimonials-3-columns">Marketing Manager</span>
+                    </div><!-- end item -->
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/4.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">James Smith</h4>
+                        <span class="job-testimonials-3-columns">Senior Finance Manager</span>
+                    </div><!-- end item -->
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/5.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">Maria Garcia</h4>
+                        <span class="job-testimonials-3-columns">Finance Director Theme Group</span>
+                    </div><!-- end item -->
+                    <div class="item item-testimonials-3-columns text-left">
+                        <p class="quote-icon">“</p>
+                        <p><i>Morbi auctor vel mauris facilisis lacinia. Aenean suscipit lorem leo, et hendrerit odio fermentum et. Donec ac dolor eros. Mauris arcu nunc, iaculis sit amet lacus iaculis, faucibus faucibus nunc. Vestibulum sit amet lacinia massa</i></p>
+                        <div class="avatar-testimonials-3-columns">
+                            <img src="{% static 'sspn_portfolio_website/images/Testimonials/6.jpg' %}" class="img-responsive" alt="Image">
+                        </div>
+                        <h4 class="name-testimonials-3-columns">Robert Johnson</h4>
+                        <span class="job-testimonials-3-columns">Finance Assistant - PR Agency</span>
+                    </div><!-- end item -->
+                </div>
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+</section><!-- End section -->
+{% endblock %}

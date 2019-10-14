@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+{% load static %}
+<head>
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>SSPN Finance</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Block for CSS -->
+    
+    <!-- Font
+  ================================================== -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/css/font-awesome.min.css' %}">
+    <!-- CSS
+  ================================================== -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/css/bootstrap.min.css' %}" />
+    <!-- SELECTBOX
+  ================================================== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_portfolio_website/css/fancySelect.css' %}" media="screen" />
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS
+  ================================================== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_portfolio_website/css/extralayers.css' %}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_portfolio_website/rs-plugin/css/settings.css' %}" media="screen" />
+    <!-- SCROLL BAR MOBILE MENU
+  ================================================== -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/css/jquery.mCustomScrollbar.css' %}" />
+    <!-- OWL CAROUSEL
+  ================================================== -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/css/owl.carousel.css' %}">
+    <!-- SCROLL BAR MOBILE MENU
+  ================================================== -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/css/jquery.mCustomScrollbar.css' %}" />
+    <!-- MAIN STYLE
+  ================================================== -->
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_portfolio_website/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_portfolio_website/css/animate.css' %}" />
+    <!-- color scheme -->
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/switcher/demo.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'sspn_portfolio_website/switcher/colors/red.css' %}" type="text/css" id="colors">
+    <!-- Favicons
+  ================================================== -->
+    <link rel="shortcut icon" href="{% static 'sspn_portfolio_website/favicon.png' %}">
+    {% block stylesheets %}
+    {% endblock stylesheets %}
+
+    
+    <!-- SCRIPT
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/jpreLoader.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/easing.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/fancySelect.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/custom.js' %}"></script>
+    <!-- Switcher
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/switcher/demo.js' %}"></script>
+    <!-- Counter Up
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/js/plugins/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/custom-counterup.js' %}"></script>
+    <!-- Mobile Menu
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/js/plugins/jquery.mobile-menu.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/sticky.min.js' %}"></script>
+    <!-- Revo Lib
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'sspn_portfolio_website/rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'sspn_portfolio_website/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <!-- Custom Revoslider -->
+    <script src="{% static 'sspn_portfolio_website/js/plugins/revoslider-custom.js' %}"></script>
+
+    <!-- Initializing the isotope
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/js/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/custom-isotope.js' %}"></script>
+    <!-- Initializing Owl Carousel
+    ================================================== -->
+    <script src="{% static 'sspn_portfolio_website/js/plugins/owl.carousel.js' %}"></script>
+    <script src="{% static 'sspn_portfolio_website/js/plugins/custom-owl.js' %}"></script>
+   
+   {% block headscript %}
+   {% endblock headscript %}
+
+</head>
+<body>
+    <div class="mobile-menu-first">
+        <div id="mobile-menu" class="mobile-menu-light">
+            <div class="mCustomScrollbar light" data-mcs-theme="minimal-dark">
+                <div class="header-mobile-menu hmm-v1">
+                    <span class="lnr lnr-phone-handset icon-set-1 icon-xs"></span> <span class="sub-text-icon text-middle"><strong>022-66981252</strong></span></span>
+                    <a href="{% url 'sspn_portfolio_website:contact_us' %}" class="ot-btn btn-rounded btn-hightlight-color">Contact Now</a>
+                </div> <!-- Mobile Menu -->
+                <ul>
+                    <li>
+                        <a href="{% url 'sspn_portfolio_website:index' %}"> Home</a>
+
+                    </li>
+
+                    <li>
+                    <a href="{% url 'sspn_portfolio_website:product_list' %}">Products</a>
+                    </li>
+
+                    <li><a href="{% url 'sspn_portfolio_website:about_us' %}">About Us </a></li>
+                    <li><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us </a> </li>
+                    <li><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> </li>
+                    <li><a href="{% url 'sspn_portfolio_website:career' %}">Career</a> </li>
+                </ul>
+                <div class="footer-mobile-menu fmm-v1">
+                    <ul class="social">
+                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+
+                    <ul class="address-footer-mobile">
+
+                        <li><a href=""><span class="lnr lnr-map-marker"></span>Register office : Office No.2, Plot No 192, Vaintheya CHS Ltd ,S V Road, VileParle (West)</a></li>
+                        <li><a href="tel:022-66981252 "><span class="lnr lnr-smartphone"></span>022-66981252 </a></li>
+                        <li><a href="mailto:info@sspnfin.com"><span class="lnr lnr-envelope"></span> info@sspnfin.com</a></li>
+
+                    </ul>
+                </div>
+            </div> <!-- /#rmm   -->
+        </div>
+    </div><!-- End Mobile Menu -->
+
+    <div id="page">
+        <header id="sticked-menu" class="header header-v1">
+            <div class="logo">
+                <div class="mm-toggle">
+                    <i class="fa fa-bars"></i><span class="mm-label">Menu</span>
+                </div> <!-- End button mobile menu -->
+                <a href="{% url 'sspn_portfolio_website:index' %}"><img src="{% static 'sspn_portfolio_website/images/Header/logo_sspn.png' %}" class="img-responsive" alt="Image"></a>
+            </div><!-- End Logo -->
+            <nav class="navi-desktop-site">
+                <ul class="navi-level-1">
+                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:index' %}">Home </a>
+
+                    </li>
+                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:product_list' %}">Products</a>
+                    </li>
+                    <li><a href="{% url 'sspn_portfolio_website:about_us' %}">About Us </a></li>
+                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us </a>
+
+                    </li>
+                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a>
+                    </li>
+                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:career' %}">Career</a>
+                    </li>
+                </ul>
+            </nav> <!-- End Navi Desktop -->
+            <div class="navi-right">
+                <ul>
+                    <li><span class="sub-text-icon text-middle sub-text-middle">022-66981252</span></li>
+                    <li>
+                        <a href="{% url 'sspn_portfolio_website:contact_us' %}" class="ot-btn btn-rounded btn-hightlight-color" style="background-color: #df2e1b">Contact Now</a>
+                    </li>
+                </ul>
+            </div>
+        </header><!-- END HEADER -->
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- Footer -->
+        <footer class=" bg-dark footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-row">
+
+                        <div class="footer-col-1">
+                            <a href="{% url 'sspn_portfolio_website:index' %}"><img src="{% static 'sspn_portfolio_website/images/Header/logo_sspn.png' %}" class="img-responsive" alt="Image"></a>
+                            <ul class="clearfix">
+                                <br>
+                                <li><a href="{% url 'sspn_portfolio_website:microfinance' %}">Microfinance</a></li>
+                                <li><a href="{% url 'sspn_portfolio_website:instantsalary' %}">Instant Salary</a></li>
+                                <li><a href="{% url 'sspn_portfolio_website:consumerfinance' %}">Consumer Finance</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col-2">
+                            <h3 class="text-white">Contact us</h3>
+                            <div class="border-2-side">
+                                <p> <b>Register office :</b> Office No.2, Plot No 192, Vaintheya CHS Ltd ,S V Road, VileParle (West)</p>
+                                <p><span>Phone: 022-66981252</span></p>
+                                <p><span>Email: info@sspnfin.com</span></p>
+                            </div>
+                        </div>
+                        <div class="footer-col-3">
+                            <h3 class="text-white">Follow us</h3>
+                            <ul class="social social-footer">
+                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div> <!-- End footer row -->
+                    <div class="col-md-12 footer-link">
+                        <p>Copyright © 2019 Designed by Finity TechServ. All rights reserved.</p>
+                        <ul>
+                            <li><a href="{% url 'sspn_portfolio_website:index' %}">Home</a></li>
+                            <li><a href="{% url 'sspn_portfolio_website:product_list' %}">Products</a></li>
+                            <li><a href="{% url 'sspn_portfolio_website:about_us' %}">About Us</a></li>
+                            <li><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us</a></li>
+                            <li><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> </li>
+                            <li><a href="{% url 'sspn_portfolio_website:career' %}">Career </a></li>
+                        </ul>
+                    </div>
+                </div><!-- End Row -->
+
+            </div><!-- End container -->
+        </footer><!-- End  -->
+
+    </div><!-- End Page -->
+    <!-- Loading Lazy Images -->
+    <div id=jSplash>
+        <div style="text-align: center;position: relative;top: 30%">
+            <img src="{% static 'sspn_portfolio_website/images/logo_animation.gif' %}">
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <!-- Overlay Mobile Menu Click -->
+    <a id="to-the-top" style="display: block;"><i class="fa fa-angle-up"></i></a> <!-- Back To Top -->
+</body>
+
+</html>

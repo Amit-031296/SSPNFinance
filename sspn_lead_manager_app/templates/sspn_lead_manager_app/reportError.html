@@ -1,0 +1,43 @@
+{% extends 'sspn_lead_manager_app/base.html' %}
+
+{% load static %}
+<style>
+    #colmn {
+        width: 1000px;
+    }
+
+    thead input {
+        width: 100%;
+    }
+</style>
+{% block stylesheets %}>
+{% endblock %}
+
+{% block headscript %}
+{% endblock headscript %}
+
+{% block content %}
+<h1>Report Error</h1>
+<hr>
+<!--GENERAL DETAILS FORM STARTS-->
+<!--TEXT FIELDS START HERE-->
+<div>
+    <form action="#" method="post">
+        <div class="col">
+            <label for="job_name">Subject</label>
+            <input type="text" class="form-control" id="job_name" name="job_name">
+        </div>
+        <br>
+        <div class="col">
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="5" id="message"></textarea>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-default id = btn">Submit</button>
+        </div>
+    </form>
+</div>
+<!--PAGE CONTENT ENDS HERE-->
+{% endblock %}

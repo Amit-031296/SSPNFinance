@@ -1,0 +1,63 @@
+{% extends 'sspn_portfolio_website/base.html' %}
+
+{% load static %}
+
+{% block content %}
+ <!-- Section Header Title -->
+        <section class="bg-grey padding-top-45 padding-bottom-45 clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <div class="col-md-12">
+                            <h2>Get Connected Instantly For Microfinance</h2>
+                        </div>
+                    </div>
+                </div><!-- End Row -->
+            </div><!-- End container -->
+
+        </section><!--  End Section -->
+        <!-- Section BreadCrumb -->
+        <div class="no-padding border-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="breadcrumb breadcrumb-finance">
+                            <li><a href="{% url 'sspn_portfolio_website:index' %}"> <i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                            <li class="active">Register</li>
+                        </ol>
+                    </div><!--  End col -->
+                </div> <!-- End Row -->
+            </div><!-- End container -->
+        </div><!--  End Section -->
+
+        <div class="line"></div>
+
+        <!-- Section form contact -->
+        <section class="padding-top:50px;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12 right-contact">
+                        <h4>Please fill the following details and Our Team will get in touch within 24 Hours</h4>
+                        <form class="form-inline form-contact-finance form-contact-2" name="registration" method="post" action="{% url 'sspn_portfolio_website:detailed_registration' %}">
+                         {% csrf_token %}   
+                            <div class="row">
+                                <div class="form-group col-sm-12  ">
+                                    <input type="text" class="form-control" name="yourName" id="yourName" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group col-sm-12 ">
+                                    <input type="email" class="form-control" name="yourEmail" id="yourEmail" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group col-sm-12 ">
+                                    <input type="text" pattern="(7|8|9)\d{9}" oninvalid="setCustomValidity('Wrong Number.Please Enter Valid Number ')" onchange="try{setCustomValidity('')}catch(e){}" class="form-control" name="yourPhone" id="yourPhone" placeholder="Your Phone Number" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="ot-btn large-btn btn-rounded btn-block btn-main-color btn-submit">Get Connected</button>
+                        </form> <!-- End Form -->
+                    </div> <!-- End col -->
+                </div>
+            </div>
+        </section>
+        <!-- End Section -->
+
+{% endblock %}

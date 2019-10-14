@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+   
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="css/iofrm-theme5.css">
+    
+
+    
+</head>
+
+<body style="background-color: #2E3639 !important;">
+    <div class="row">
+        <div class="form-holder" style="background-color: #2E3639 !important;">
+            <div class="form-content" style="background-color: #2E3639 !important;">
+                <div class="form-items" style="margin-top:5%">
+                    <h3>Login</h3>
+                    <p>Enter your username and password!</p>
+                    <div class="page-links">
+                        <a href="{% url 'sspn_lead_manager_app:index' %}" class="active">Login</a><a href="{% url 'sspn_lead_manager_app:index' %}">Register</a>
+                    </div>
+                    <form method="post" action="{% url 'sspn_lead_manager_app:index' %}">
+                        <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Login</button> <a href="{% url 'sspn_lead_manager_app:index' %}">Forget password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% block script %}
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+{% endblock %}
+</body>
+
+</html>
