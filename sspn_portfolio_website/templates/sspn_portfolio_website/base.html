@@ -10,6 +10,7 @@
   ================================================== -->
     <meta charset="utf-8">
     <title>SSPN Finance</title>
+    <link rel="shortcut icon" href="{% static 'sspn_portfolio_website/images/sspn_title.ico' %}"  />
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -115,7 +116,7 @@
 
                     <li><a href="{% url 'sspn_portfolio_website:about_us' %}">About Us </a></li>
                     <li><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us </a> </li>
-                    <li><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> </li>
+                    {% comment %} <li><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> </li> {% endcomment %}
                     <li><a href="{% url 'sspn_portfolio_website:career' %}">Career</a> </li>
                 </ul>
                 <div class="footer-mobile-menu fmm-v1">
@@ -158,7 +159,7 @@
                     <li class="has-sub"><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us </a>
 
                     </li>
-                    <li class="has-sub"><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a>
+                    {% comment %} <li class="has-sub"><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> {% endcomment %}
                     </li>
                     <li class="has-sub"><a href="{% url 'sspn_portfolio_website:career' %}">Career</a>
                     </li>

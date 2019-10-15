@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Base</title>
+    <title>SSPN Finance</title>
+    <link rel="shortcut icon" href="{% static 'sspn_lead_manager_app/img/sspn_title.ico' %}"  />
     <!-- Block for CSS -->
     
     <!-- Bootstrap CSS CDN -->
@@ -50,64 +51,59 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li>
+                <li class="active">
                     <a href="{% url 'sspn_lead_manager_app:index' %}">Dashboard</a>
                 </li>
-                {% comment %}
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:index' %}">Leads Collected</a>
+                    <a href="{% url 'sspn_lead_manager_app:leads_collected' %}">Leads Collected</a>
                 </li>
-                 {% endcomment %}
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leads by Product</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Micro finance</a>
+                            <a href="{% url 'sspn_lead_manager_app:micro_finance' %}">Micro finance</a>
                         </li>
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Home Loans</a>
+                            <a href="{% url 'sspn_lead_manager_app:instant_salary' %}">Instant Salary</a>
                         </li>
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Instant Salary</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Consumer Finance</a>
+                            <a href="{% url 'sspn_lead_manager_app:consumer_finance' %}">Consumer Finance</a>
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leads By Status</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">All</a>
+                            <a href="{% url 'sspn_lead_manager_app:all_status' %}">All</a>
                         </li>
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Pending</a>
+                            <a href="{% url 'sspn_lead_manager_app:pending_status' %}">Pending</a>
                         </li>
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">In Process</a>
+                            <a href="{% url 'sspn_lead_manager_app:in_process_status' %}">In Process</a>
                         </li>
                         <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Approved</a>
+                            <a href="{% url 'sspn_lead_manager_app:approved_status' %}">Approved</a>
                         </li>
                      <li>
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Rejected</a>
+                            <a href="{% url 'sspn_lead_manager_app:rejected_status' %}">Rejected</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:index' %}">Team</a>
+                    <a href="{% url 'sspn_lead_manager_app:team_sspn' %}">Team</a>
                 </li>
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:index' %}">My Profile</a>
+                    <a href="{% url 'sspn_lead_manager_app:user_profile' %}">My Profile</a>
                 </li>
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:index' %}">Report Error</a>
+                    <a href="{% url 'sspn_lead_manager_app:report_error' %}">Report Error</a>
                 </li>
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:index' %}" class="btn btn-light">
+                    <a href="{% url 'sspn_lead_manager_app:login' %}" class="btn btn-light">
                         <font color="#df2e1c">Logout</font>
                     </a>
                 </li>

@@ -7,13 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
-    <link rel="stylesheet" type="text/css" href="css/iofrm-theme5.css">
-    
+    <link rel="shortcut icon" href="{% static 'sspn_lead_manager_app/img/sspn_title.ico' %}"  />
 
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_lead_manager_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_lead_manager_app/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_lead_manager_app/css/iofrm-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sspn_lead_manager_app/css/iofrm-theme5.css' %}">
+    
+    <script src="{% static 'sspn_lead_manager_app/js/jquery.min.js' %}"></script>
+    <script src="{% static 'sspn_lead_manager_app/js/popper.min.js' %}"></script>
+    <script src="{% static 'sspn_lead_manager_app/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sspn_lead_manager_app/js/main.js' %}"></script>
     
 </head>
 
@@ -23,13 +28,13 @@
             <div class="form-holder" style="background-color: #2E3639 !important;">
                 <div class="form-content" style="background-color: #2E3639 !important;">
                     <div class="form-items">
-                        <h3>Register</h3>
+                        <h3>Register to<br> SSPN Finance Lead Manager</h3>
                         <p>Enter your details to make a new account!</p>
                         <div class="page-links">
-                            <a href="{% url 'sspn_lead_manager_app:index' %}">Login</a><a href="{% url 'sspn_lead_manager_app:index' %}" class="active">Register</a>
+                            <a href="{% url 'sspn_lead_manager_app:login' %}">Login</a><a href="{% url 'sspn_lead_manager_app:register' %}" class="active">Register</a>
                         </div>
                         <form method="post" action="{% url 'sspn_lead_manager_app:index' %}">
-                            <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                            <input class="form-control" type="text" name="name" placeholder="User Name" required>
                             <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
@@ -42,10 +47,7 @@
         </div>
     </div>
     {% block script %}
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    
     {% endblock %}
 </body>
 
