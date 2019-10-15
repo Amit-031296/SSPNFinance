@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sspn_lead_manager_app',
     'sspn_portfolio_website',
+    'bootstrap_modal_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

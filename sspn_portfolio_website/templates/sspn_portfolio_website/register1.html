@@ -39,11 +39,11 @@
 
                     <div class="col-md-12 right-contact">
                         <h4>Thank You for your details. For more details about Microfinance please give following details </h4>
-                        <form class="form-inline form-contact-finance form-contact-2" name="contact" method="post" action="{% url 'sspn_portfolio_website:index' %}">
+                        <form class="form-inline form-contact-finance form-contact-2" name="contact" method="post" action="{% url 'sspn_portfolio_website:detailed_registration_submit' pk=user_pk %}">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="form-group col-sm-12  ">
-                                    <input type="text" class="form-control" name="city" id="yourCity" placeholder="Your City">
+                                    <input type="text" class="form-control" name="yourCity" id="yourCity" placeholder="Your City">
                                 </div>
 
                                 <div class="form-group col-sm-12 ">

@@ -9,6 +9,10 @@
 
 {% endblock stylesheets %}
 
+{% block script %}
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+{% endblock %}
+
 {% block extrastylesheets %}
 <style>
     #colmn {
@@ -21,9 +25,16 @@
 </style>
 {% endblock %}
 {% block content %}
+<!-- Modal for CURD Operation -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
 <h1>Leads Collected By Instant Salary</h1>
 <hr>
 <div>
+{% if product_instantsalary %}
     <table id="test_table" class="display" style="width: 100%">
         <thead>
             <tr>
@@ -50,18 +61,28 @@
             </tr>
         </thead>
         <tbody>
+            {% for instantsalary in product_instantsalary %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ instantsalary.sr_no }}</td>
+                <td>{{ instantsalary.full_name }}</td>
+                <td>{{ instantsalary.gender }}</td>
+                <td>{{ instantsalary.email }}</td>
+                <td>{{ instantsalary.contact }}</td>
+                <td>{{ instantsalary.company_name }}</td>
+                <td>{{ instantsalary.status }}</td>
+                <td>
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' instantsalary.pk %}">
+                                <span class="fa fa-edit"></span>
+                            </button>
+                        </td>
+                        
+                        <td>
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' instantsalary.pk %}">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                        </td>
             </tr>
+            {% endfor %}
             </tbody>
         <tfoot>
             <tr>
@@ -77,8 +98,33 @@
             </tr>
         </tfoot>
     </table>
+    {% else %}
+            <p class="no-leads text-primary">No entry added yet.</p>
+    {% endif %}
 </div>
  <!--TEST TABLE ENDS HERE-->
     
 <!--PAGE CONTENT ENDS HERE-->
+{% endblock %}
+{% block extrascript %}
+<script type="text/javascript">
+    $(function() {
+        $(".update-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+        $(".delete-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+
+        $(".read-book").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+    });
+</script>
 {% endblock %}

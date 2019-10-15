@@ -6,7 +6,7 @@ app_name = 'sspn_lead_manager_app'
 
 urlpatterns = [
 
-path("" , views.login, name="login"),
+path("login/" , views.login, name="login"),
 
 path("register/" , views.register, name="register"),
 
@@ -40,7 +40,12 @@ path("team_sspn/" , views.team_sspn, name="team_sspn"),
 
 path("report_error/" , views.report_error, name="report_error"),
 
+path('update/<int:pk>',views.LeadUpdateView.as_view(), name='leads_update'),
 
+path('delete/<int:pk>',views.LeadDeleteView.as_view(), name='leads_delete'),
 
+path('teamupdate/<int:pk>',views.TeamUpdateView.as_view(), name='teamupdate'),
+
+path('teamdelete/<int:pk>',views.TeamDeleteView.as_view(), name='teamdelete'),
 
 ]

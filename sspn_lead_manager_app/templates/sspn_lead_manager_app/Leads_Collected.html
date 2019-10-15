@@ -3,10 +3,15 @@
 {% load static %}
 
 {% block stylesheets %}
+
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 {% endblock stylesheets %}
+
+{% block script %}
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+{% endblock %}
 
 {% block extrastylesheets %}
 <style>
@@ -21,9 +26,18 @@
 {% endblock %}
 
 {% block content %}
+<!-- Modal for CURD Operation -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+        
 <h1>All Leads</h1>
 <hr>
 <div>
+{% if leads %}
     <table id="test_table" class="display" style="width: 100%">
         <thead>
             <tr>
@@ -52,19 +66,31 @@
             </tr>
         </thead>
         <tbody>
+        {% for lead in leads %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ lead.sr_no }}</td>
+                <td>{{ lead.full_name }}</td>
+                <td>{{ lead.gender }}</td>
+                <td>{{ lead.email }}</td>
+                <td>{{ lead.contact }}</td>
+                <td>{{ lead.company_name }}</td>
+                <td>{{ lead.product_interested_in }}</td>
+                <td>{{ lead.status }}</td>
+                <td>
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' lead.pk %}">
+                                <span class="fa fa-edit"></span>
+                            </button>
+                        </td>
+                        
+                        <td>
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' lead.pk %}">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                        </td>
             </tr>
+            {% endfor %}
             </tbody>
+            
         <tfoot>
             <tr>
                 <th>Sr. No</th>
@@ -80,8 +106,36 @@
             </tr>
         </tfoot>
     </table>
-</div>
+    {% else %}
+            <p class="no-leads text-primary">No entry added yet.</p>
+    {% endif %}
+        </div>
+
+{% endblock %}
  <!--TEST TABLE ENDS HERE-->
     
 <!--PAGE CONTENT ENDS HERE-->
+
+{% block extrascript %}
+<script type="text/javascript">
+    $(function() {
+        $(".update-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+        $(".delete-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+
+        $(".read-book").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+    });
+</script>
 {% endblock %}
+

@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="section-title">
                         <div class="col-md-12">
-                            <h2>Get Connected Instantly For Microfinance</h2>
+                            <h2>Get Connected Instantly For {{product_name}}</h2>
                         </div>
                     </div>
                 </div><!-- End Row -->
@@ -39,7 +39,7 @@
 
                     <div class="col-md-12 right-contact">
                         <h4>Please fill the following details and Our Team will get in touch within 24 Hours</h4>
-                        <form class="form-inline form-contact-finance form-contact-2" name="registration" method="post" action="{% url 'sspn_portfolio_website:detailed_registration' %}">
+                        <form class="form-inline form-contact-finance form-contact-2" name="registration" method="post" action="{% url 'sspn_portfolio_website:signup_registeration_form_submit' product_name=product_name %}">
                          {% csrf_token %}   
                             <div class="row">
                                 <div class="form-group col-sm-12  ">

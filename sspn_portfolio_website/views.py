@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
+from sspn_lead_manager_app.models import AllLeads,Team
+
 
 # Create your views here.
 def home(request):
@@ -31,11 +34,42 @@ def blog_detail(request):
 def career(request):
     return render(request,'sspn_portfolio_website/career.html')
 
-def signup_registration(request):
-    return render(request,'sspn_portfolio_website/register.html')
+def signup_registration(request,product_name):
+    data = {'product_name':product_name}
+    return render(request,'sspn_portfolio_website/register.html',data)
 
-def detailed_registration(request):
-    return render(request,'sspn_portfolio_website/register1.html')
+def signup_registeration_form_submit(request,product_name):
+    if request.method == "POST":
+        yourName = request.POST['yourName']
+        yourEmail = request.POST['yourEmail']
+        yourPhone = request.POST['yourPhone']
+        AllLeads.objects.create(full_name = yourName,
+        email = yourEmail,
+        contact = yourPhone,
+        product_interested_in = product_name)
+        latest_object = AllLeads.objects.latest('date_of_entry')
+        latest_pk = latest_object.pk
+    return HttpResponseRedirect(reverse('sspn_portfolio_website:detailed_registration',kwargs={'pk': latest_pk }))
+
+
+
+
+
+def detailed_registration(request,pk):
+    data = {'user_pk': pk }
+    return render(request,'sspn_portfolio_website/register1.html',data)
+
+def detailed_registration_submit(request,pk):
+    if request.method == "POST":
+        yourCity = request.POST['yourCity']
+        yourCompany = request.POST['yourCompany']
+        yourprofession = request.POST['yourprofession']
+        one_lead = AllLeads.objects.get(pk=pk)
+        one_lead.city = yourCity
+        one_lead.company_name = yourCompany
+        one_lead.profession = yourprofession
+        one_lead.save()
+    return HttpResponseRedirect(reverse('sspn_portfolio_website:index'))
 
 def homeloan(request):
     return render(request,'sspn_portfolio_website/product_details2.html')

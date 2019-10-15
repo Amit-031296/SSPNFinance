@@ -9,6 +9,10 @@
 
 {% endblock stylesheets %}
 
+{% block script %}
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+{% endblock %}
+
 {% block extrastylesheets %}
 <style>
     #colmn {
@@ -22,9 +26,17 @@
 {% endblock %}
 
 {% block content %}
+<!-- Modal for CURD Operation -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
 <h1>All Leads</h1>
 <hr>
 <div>
+{% if all_status %}
     <table id="test_table" class="display" style="width: 100%">
         <thead>
             <tr>
@@ -35,7 +47,6 @@
                 <th scope="col">Contact</th>
                 <th scope="col">Company Name</th>
                 <th scope="col">Product Interested In</th>
-                <th scope="col">Status</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -47,24 +58,33 @@
                 <th>Contact</th>
                 <th>Company Name</th>
                 <th>Product Interested In</th>
-                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
+        {% for allstatus in all_status %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ allstatus.sr_no }}</td>
+                <td>{{ allstatus.full_name }}</td>
+                <td>{{ allstatus.gender }}</td>
+                <td>{{ allstatus.email }}</td>
+                <td>{{ allstatus.contact }}</td>
+                <td>{{ allstatus.company_name }}</td>
+                <td>{{ allstatus.product_interested_in }}</td>
+                <td>
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' allstatus.pk %}">
+                                <span class="fa fa-edit"></span>
+                            </button>
+                        </td>
+                        
+                        <td>
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' allstatus.pk %}">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                        </td>
             </tr>
+             {% endfor %}
             </tbody>
         <tfoot>
             <tr>
@@ -75,15 +95,39 @@
                 <th>Contact</th>
                 <th>Company Name</th>
                 <th>Product Interested In</th>
-                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </tfoot>
     </table>
+    {% else %}
+            <p class="no-leads text-primary">No entry added yet.</p>
+    {% endif %}
 </div>
  <!--TEST TABLE ENDS HERE-->
     
 <!--PAGE CONTENT ENDS HERE-->
+{% endblock %}
+{% block extrascript %}
+<script type="text/javascript">
+    $(function() {
+        $(".update-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+        $(".delete-lead").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+
+        $(".read-book").each(function() {
+            $(this).modalForm({
+                formURL: $(this).data('id')
+            });
+        });
+    });
+</script>
 {% endblock %}
 

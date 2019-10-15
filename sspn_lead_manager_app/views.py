@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from sspn_lead_manager_app.models import AllLeads,Team
+from bootstrap_modal_forms.generic import (BSModalCreateView,
+                                           BSModalUpdateView,
+                                           BSModalReadView,
+                                           BSModalDeleteView)
+from django.urls import reverse_lazy, reverse
+from sspn_lead_manager_app.forms import AllLeadsForm,TeamForm    
 
 # Create your views here.
 def login(request):
@@ -14,15 +21,18 @@ def home(request):
     return render(request,'sspn_lead_manager_app/Dashboard_sspn.html',data)
 
 def all_status(request):
-    data = {}
+    all_status = AllLeads.objects.all().filter(status='All Status')
+    data = {'all_status':all_status}
     return render(request,'sspn_lead_manager_app/all_status.html',data)
 
 def approved_status(request):
-    data = {}
+    approved_status = AllLeads.objects.all().filter(status='Approved Status')
+    data = {'approved_status':approved_status}
     return render(request,'sspn_lead_manager_app/approved_status.html',data)
 
 def consumer_finance(request):
-    data = {}
+    product_consumer_finance = AllLeads.objects.all().filter(product_interested_in='Consumer Finance')
+    data = {'product_consumer_finance':product_consumer_finance}
     return render(request,'sspn_lead_manager_app/consumer_finance.html',data)
 
 def forget_password(request):
@@ -34,28 +44,34 @@ def home_loan(request):
     return render(request,'sspn_lead_manager_app/home_loan.html',data)    
 
 def in_process_status(request):
-    data = {}
+    in_process_status = AllLeads.objects.all().filter(status='In Process Status')
+    data = {'in_process_status':in_process_status}
     return render(request,'sspn_lead_manager_app/in_process_status.html',data)    
 
 def instant_salary(request):
-    data = {}
+    product_instantsalary = AllLeads.objects.all().filter(product_interested_in='Instant Salary')
+    data = {'product_instantsalary':product_instantsalary}
     return render(request,'sspn_lead_manager_app/instant_salary.html',data)
 
 
 def leads_collected(request):
-    data = {}
+    leads = AllLeads.objects.all()
+    data = {'leads':leads}
     return render(request,'sspn_lead_manager_app/Leads_Collected.html',data)
 
 def micro_finance(request):
-    data = {}
+    product_microfinance = AllLeads.objects.all().filter(product_interested_in='Micro Finance')
+    data = {'product_microfinance':product_microfinance}
     return render(request,'sspn_lead_manager_app/micro_finance.html',data)
 
 def pending_status(request):
-    data = {}
+    pending_status = AllLeads.objects.all().filter(status='Pending Status')
+    data = {'pending_status':pending_status}
     return render(request,'sspn_lead_manager_app/pending_status.html',data)
     
 def rejected_status(request):
-    data = {}
+    rejected_status = AllLeads.objects.all().filter(status='Rejected Status')
+    data = {'rejected_status':rejected_status}
     return render(request,'sspn_lead_manager_app/rejected_status.html',data)
     
 def report_error(request):
@@ -63,9 +79,41 @@ def report_error(request):
     return render(request,'sspn_lead_manager_app/reportError.html',data)
     
 def team_sspn(request):
-    data = {}
+    team_sspn = Team.objects.all()
+    data = {'team_sspn':team_sspn}
     return render(request,'sspn_lead_manager_app/team_sspn.html',data)
     
 def user_profile(request):
-    data = {}
+    user_profile = Team.objects.all()
+    data = {'user_profile':user_profile}
     return render(request,'sspn_lead_manager_app/user_profile.html',data)
+
+
+class LeadUpdateView(BSModalUpdateView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/update_entry.html'
+    form_class = AllLeadsForm
+    success_message = 'Success: Entry was updated.'
+    success_url = reverse_lazy('sspn_lead_manager_app:leads_collected')
+
+
+class LeadDeleteView(BSModalDeleteView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/delete_entry.html'
+    success_message = 'Success: Entry was deleted.'
+    success_url = reverse_lazy('sspn_lead_manager_app:leads_collected')
+
+class TeamUpdateView(BSModalUpdateView):
+    model = Team
+    template_name = 'sspn_lead_manager_app/update_entry.html'
+    form_class = TeamForm
+    success_message = 'Success: Entry was updated.'
+    success_url = reverse_lazy('sspn_lead_manager_app:team_sspn')
+
+
+class TeamDeleteView(BSModalDeleteView):
+    model = Team
+    template_name = 'sspn_lead_manager_app/delete_entry.html'
+    success_message = 'Success: Entry was deleted.'
+    success_url = reverse_lazy('sspn_lead_manager_app:team_sspn')
+
