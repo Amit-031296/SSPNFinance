@@ -13,15 +13,13 @@
 
             <hr><br>
 
-            <div id="company_wise" style="height: 400px; width: 100%"></div>
-
-            <hr><br>
-
             <div id="profession_wise" style="height: 400px; width: 100%"></div>
 
             <hr><br>
 
-            <div id="product_wise" style="height: 400px; width: 100%"></div>
+            <div id="product_wise" style="height: 400px; width: 100%">
+            
+            </div>
         </div>
 {% endblock %}
 
@@ -45,78 +43,33 @@
                 indexLabelFontSize: 16,
                 indexLabel: "{label} - {y}%",
                 dataPoints: [{
-                        y: 51.08,
+                        y: {{ city_mumbai_count }},
                         label: "Mumbai"
                     },
                     {
-                        y: 27.34,
+                        y: {{ city_delhi_count }},
                         label: "Delhi"
                     },
                     {
-                        y: 10.62,
+                        y: {{ city_banglore_count }},
                         label: "Banglore"
                     },
                     {
-                        y: 5.02,
+                        y: {{ city_pune_count }},
                         label: "Pune"
                     },
                     {
-                        y: 4.07,
+                        y: {{city_ahmedabad_count}},
                         label: "Ahmedabad"
                     },
                     {
-                        y: 1.66,
+                        y: {{city_other_count}},
                         label: "Other"
                     },
                 ]
             }]
         });
         city.render();
-
-        var company = new CanvasJS.Chart("company_wise", {
-            theme: "light2", // "light1", "light2", "dark1", "dark2"
-            exportEnabled: true,
-            animationEnabled: true,
-            title: {
-                text: "Enquire Form Filled from Various Companies"
-            },
-            data: [{
-                type: "pie",
-                startAngle: 25,
-                toolTipContent: "<b>{label}</b>: {y}%",
-                showInLegend: "true",
-                legendText: "{label}",
-                indexLabelFontSize: 16,
-                indexLabel: "{label} - {y}%",
-                dataPoints: [{
-                        y: 51.08,
-                        label: "Tcs"
-                    },
-                    {
-                        y: 27.34,
-                        label: "LTI"
-                    },
-                    {
-                        y: 10.62,
-                        label: "Accenture"
-                    },
-                    {
-                        y: 5.02,
-                        label: "Axis Bank"
-                    },
-                    {
-                        y: 4.07,
-                        label: "Infosys"
-                    },
-                    {
-                        y: 1.66,
-                        label: "Other"
-                    },
-                ]
-            }]
-        });
-        company.render();
-
 
         var profession = new CanvasJS.Chart("profession_wise", {
             theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -134,20 +87,20 @@
                 indexLabelFontSize: 16,
                 indexLabel: "{label} - {y}%",
                 dataPoints: [{
-                        y: 51.08,
+                        y: {{ salaried_count }},
                         label: "Salaried"
                     },
                     {
-                        y: 32.34,
+                        y: {{business_count}},
                         label: "Business"
                     },
                     {
-                        y: 13.89,
+                        y: {{ self_employed_count }},
                         label: "Self Employed"
                     },
 
                     {
-                        y: 2.69,
+                        y: {{ other_count }},
                         label: "Other"
                     },
                 ]
@@ -171,20 +124,17 @@
                 indexLabelFontSize: 16,
                 indexLabel: "{label} - {y}%",
                 dataPoints: [{
-                        y: 26.50,
+                        y: {{ micro_finance_count }},
                         label: "Microfinance"
                     },
+
                     {
-                        y: 24.50,
-                        label: "Home Loans"
-                    },
-                    {
-                        y: 30.20,
+                        y: {{ instant_salary_count }},
                         label: "Instant Salary"
                     },
 
                     {
-                        y: 19.8,
+                        y: {{ consumer_finance_count }},
                         label: "Consumer Finanace"
                     },
                 ]

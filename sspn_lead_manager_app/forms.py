@@ -20,6 +20,6 @@ class TeamForm(BSModalForm):
         model = Team
         fields=('full_name',
         'email',
+        'role',
         'contact',
-        'company_name',
         'status')

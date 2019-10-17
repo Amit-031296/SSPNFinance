@@ -34,7 +34,7 @@
 </div>
 <div>
     <div class="jumbotron">
-        <h1 class="display-4">Hello, Soham!</h1>
+        <h1 class="display-4">Hello {{ user_name }}</h1>
         <p class="lead">Welcome to Your SSPN Finance Profile Page.</p>
         <hr class="my-4">
         <p>You can view and edit your information here. Password change requires Email verification.</p>
@@ -45,48 +45,34 @@
 </div>
 
 <div>
-{% if user_profile %}
+
     <table id="test_table" class="display" style="width: 100%">
         <thead>
             <tr>
-                <th scope="col">Sr. No</th>
-                <th scope="col">User Name</th>
-                <th scope="col">Email</th>
+                <th scope="col">Your Id</th>
+                <th scope="col">Your UserName</th>
+                <th scope="col">Your Email</th>
                 <th scope="col">Update</th>
-            </tr>
-            <tr>
-                <th>Sr. No</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
-        {% for user in user_profile %}
+        
             <tr>
-                <td>{{ user.sr_no }}</td>
-                <td>{{ user.full_name }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user_id }}</td>
+                <td>{{ user_name }}</td>
+                <td>{{ user_email}}</td>
                 <td>
                             <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:teamupdate' user.pk %}">
                                 <span class="fa fa-edit"></span>
                             </button>
                         </td>
             </tr>
-            {% endfor %}
+           
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Sr. No</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Edit</th>
-            </tr>
-        </tfoot>
+
     </table>
-    {% else %}
-            <p class="no-leads text-primary">No entry added yet.</p>
-    {% endif %}
+
+   
 </div>
  <!--TEST TABLE ENDS HERE-->
     

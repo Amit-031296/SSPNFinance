@@ -9,16 +9,20 @@ class AllLeadsAdmin(admin.ModelAdmin):
         "sr_no",
         "full_name",
         "gender",
+        "email",
         "contact",
         "company_name",
         "product_interested_in",
-        "date_of_entry"
+        "date_of_entry",
+        "status",
+        "date_of_entry",
+        "city",
+        "profession"
     ]
 
 class TeamAdmin(admin.ModelAdmin):
     list_display = [
         "pk",
-        "sr_no",
         "full_name",
         "role",
         "company_name"

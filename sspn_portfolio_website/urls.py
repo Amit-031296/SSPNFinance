@@ -22,6 +22,10 @@ path("aboutus/" , views.about_us, name="about_us"),
 
 path("contactus/" , views.contact_us, name="contact_us"),
 
+path("contact_us_submit/",views.contact_us_submit,name="contact_us_submit"),
+
+path("contact_us_success/",views.contact_us_success,name="contact_us_success"),
+
 path("bloglist/" , views.blog_list, name="blog_list"),
 
 path("blog/" , views.blog_detail, name="blog_detail"),

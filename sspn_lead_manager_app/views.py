@@ -5,7 +5,9 @@ from bootstrap_modal_forms.generic import (BSModalCreateView,
                                            BSModalReadView,
                                            BSModalDeleteView)
 from django.urls import reverse_lazy, reverse
+from sspn_lead_manager_app.models import AllLeads,Team 
 from sspn_lead_manager_app.forms import AllLeadsForm,TeamForm    
+from django.db.models import Count, Q
 
 # Create your views here.
 def login(request):
@@ -17,7 +19,32 @@ def register(request):
     return render(request,'sspn_lead_manager_app/register.html',data)
 
 def home(request):
-    data = {}
+    salaried_count = AllLeads.objects.filter(profession="Salaried").all().count()
+    business_count = AllLeads.objects.filter(profession="Business").all().count()
+    self_employed_count = AllLeads.objects.filter(profession="Self Employed").all().count()
+    other_count = AllLeads.objects.filter(profession="Other").all().count()
+    micro_finance_count = AllLeads.objects.filter(product_interested_in="Micro Finance").all().count()
+    instant_salary_count = AllLeads.objects.filter(product_interested_in="Instant Salary").all().count()
+    consumer_finance_count = AllLeads.objects.filter(product_interested_in="Consumer Finance").all().count()
+    city_mumbai_count = AllLeads.objects.filter(city="Mumbai").all().count()
+    city_delhi_count = AllLeads.objects.filter(city="Delhi").all().count()
+    city_banglore_count = AllLeads.objects.filter(city="Banglore").all().count()
+    city_pune_count = AllLeads.objects.filter(city="Pune").all().count()
+    city_ahmedabad_count = AllLeads.objects.filter(city="Ahmedabad").all().count()
+    city_other_count = AllLeads.objects.filter(city="Other").all().count()
+    data = {"micro_finance_count":micro_finance_count,
+    "instant_salary_count":instant_salary_count,
+    "consumer_finance_count":consumer_finance_count,
+    "salaried_count":salaried_count,
+    "business_count":business_count,
+    "self_employed_count":self_employed_count,
+    "other_count":other_count,
+    "city_mumbai_count":city_mumbai_count,
+    "city_delhi_count":city_delhi_count,
+    "city_banglore_count":city_banglore_count,
+    "city_pune_count":city_pune_count,
+    "city_ahmedabad_count":city_ahmedabad_count,
+    "city_other_count":city_other_count}
     return render(request,'sspn_lead_manager_app/Dashboard_sspn.html',data)
 
 def all_status(request):
@@ -84,8 +111,12 @@ def team_sspn(request):
     return render(request,'sspn_lead_manager_app/team_sspn.html',data)
     
 def user_profile(request):
-    user_profile = Team.objects.all()
-    data = {'user_profile':user_profile}
+    user_name = request.user.username 
+    user_email = request.user.email
+    user_id = request.user.pk
+    data = {'user_name':user_name,
+    'user_email':user_email,
+    'user_id':user_id}
     return render(request,'sspn_lead_manager_app/user_profile.html',data)
 
 
@@ -117,3 +148,8 @@ class TeamDeleteView(BSModalDeleteView):
     success_message = 'Success: Entry was deleted.'
     success_url = reverse_lazy('sspn_lead_manager_app:team_sspn')
 
+class add_new_teammember_view(BSModalCreateView):
+    template_name = 'sspn_lead_manager_app/add_new_teammember.html'
+    form_class = TeamForm
+    success_message = 'Success: New Team Member was added.'
+    success_url = reverse_lazy('sspn_lead_manager_app:team_sspn')

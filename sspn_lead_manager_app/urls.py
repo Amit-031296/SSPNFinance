@@ -48,4 +48,7 @@ path('teamupdate/<int:pk>',views.TeamUpdateView.as_view(), name='teamupdate'),
 
 path('teamdelete/<int:pk>',views.TeamDeleteView.as_view(), name='teamdelete'),
 
+path('teamdelete/<int:pk>',views.TeamDeleteView.as_view(), name='teamdelete'),
+
+path('add/new/team_member', views.add_new_teammember_view.as_view(), name='add_new_team_member'),
 ]

@@ -4,80 +4,89 @@
 
 {% block content %}
 
-    <!-- Section Header Title -->
-    <section class="bg-grey padding-top-45 padding-bottom-45 clearfix">
-      <div class="container">
-          <div class="row">
+<!-- Section Header Title -->
+<section class="bg-grey padding-top-45 padding-bottom-45 clearfix">
+    <div class="container">
+        <div class="row">
             <div class="section-title">
-              <div class="col-md-12">
-                <h2>Contact</h2>
-              </div>
+                <div class="col-md-12">
+                    <h2>Contact</h2>
+                </div>
             </div>
-          </div><!-- End Row -->
-      </div><!-- End container -->
-    
-    </section><!--  End Section -->
-    <!-- Section BreadCrumb -->
-    <div class="no-padding border-bottom">
-       <div class="container">
-          <div class="row">
-             <div class="col-md-12">
-                 <ol class="breadcrumb breadcrumb-finance">
+        </div><!-- End Row -->
+    </div><!-- End container -->
+
+</section><!--  End Section -->
+<!-- Section BreadCrumb -->
+<div class="no-padding border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb breadcrumb-finance">
                     <li><a href="{% url 'sspn_portfolio_website:index' %}"> <i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                     <li class="active">Contact</li>
-                  </ol>
-             </div><!--  End col -->
-          </div> <!-- End Row -->
-       </div><!-- End container -->
-    </div><!--  End Section -->
+                </ol>
+            </div><!--  End col -->
+        </div> <!-- End Row -->
+    </div><!-- End container -->
+</div><!--  End Section -->
 
-    <div class="line"></div>
+<div class="line"></div>
 
-    <!-- Section form contact -->
-    <section class="padding-top:50px;">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-8 left-contact">
-    				<h4> Send Us a Message</h4>
-          				<form class="form-inline form-contact-finance" name="contact" method="post" action="">
-            					<div class="row">
-        							  <div class="form-group col-sm-12  col-md-4">
-        							    <input type="text" class="form-control" name="yourName" id="yourName" placeholder="Your Name">
-        							  </div>
-        							  <div class="form-group col-sm-12 col-md-4">
-        							    <input type="email" class="form-control" name="yourEmail" id="yourEmail" placeholder="Your Email" >
-        							  </div>
-        							  <div class="form-group col-sm-12 col-md-4">
-        							    <input type="text" class="form-control" name="yourPhone" id="phoneNumber" placeholder="Phone Number" >
-        							  </div>
-      						    </div>
-      						    <div class="input-content">
-        						  	<div class="form-group form-textarea">
-        					  			<textarea id="textarea" class="form-control" name="comments" rows="6" placeholder="Your Messages" ></textarea>
-        						  	</div>
-        						  </div>
-                      <button  class="ot-btn large-btn btn-rounded  btn-main-color btn-submit">Send Mail</button>
-      					 </form> <!-- End Form -->
-    			</div> <!-- End col -->
-    			<div class="col-md-4 right-contact">
-    				<h4>Contact Info</h4>
-    				
-    				<ul class="address">
-                        <li><p><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp; Register office : Office No.2, Plot No 192, Vaintheya CHS Ltd ,S V Road, VileParle (West)</p></li>
-    					<li><p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp; 022-66981252</p></li>
-    					<li><p><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;&nbsp; info@sspnfin.com</p></li>
-    					<li><p><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp; Mon-Fri 09:00 am - 05:00 pm</p></li>
-    				</ul>
-    			</div> <!-- End col -->
-    		</div>
-    	</div>
-    </section>
-    <!-- End Section -->
-   	<!-- Section Google Map -->
-   	<div class="no-padding ">
-        
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d942.5075637426452!2d72.83952432983311!3d19.106328610956723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzIyLjciTiA3MsKwNTAnMjMuMSJF!5e0!3m2!1sen!2sin!4v1568783379961!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-   	</div>
-   	<!-- End Section -->
+<!-- Section form contact -->
+<section class="padding-top:50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left-contact">
+                <h4> Send Us a Message</h4>
+                <form class="form-inline form-contact-finance" name="contact" method="post" action={% url 'sspn_portfolio_website:contact_us_submit' %}>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-sm-12  col-md-4">
+                            <input type="text" class="form-control" name="yourName" id="yourName" placeholder="Your Name">
+                        </div>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <input type="email" class="form-control" name="yourEmail" id="yourEmail" placeholder="Your Email">
+                        </div>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <input type="text" class="form-control" name="yourPhone" id="yourPhone" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="input-content">
+                        <div class="form-group form-textarea">
+                            <textarea id="comments" class="form-control" name="comments" rows="6" placeholder="Your Messages"></textarea>
+                        </div>
+                    </div>
+                    <button class="ot-btn large-btn btn-rounded  btn-main-color btn-submit">Send Mail</button>
+                </form> <!-- End Form -->
+            </div> <!-- End col -->
+            <div class="col-md-4 right-contact">
+                <h4>Contact Info</h4>
+
+                <ul class="address">
+                    <li>
+                        <p><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp; Register office : Office No.2, Plot No 192, Vaintheya CHS Ltd ,S V Road, VileParle (West)</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp; 022-66981252</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;&nbsp; info@sspnfin.com</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;&nbsp; Mon-Fri 09:00 am - 05:00 pm</p>
+                    </li>
+                </ul>
+            </div> <!-- End col -->
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+<!-- Section Google Map -->
+<div class="no-padding ">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d942.5075637426452!2d72.83952432983311!3d19.106328610956723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzIyLjciTiA3MsKwNTAnMjMuMSJF!5e0!3m2!1sen!2sin!4v1568783379961!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+<!-- End Section -->
 
 {% endblock %}

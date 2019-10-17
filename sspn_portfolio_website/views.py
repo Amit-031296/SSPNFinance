@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from sspn_lead_manager_app.models import AllLeads,Team
-
+from django.core.mail import send_mail
 
 # Create your views here.
 def home(request):
@@ -24,6 +24,19 @@ def about_us(request):
 
 def contact_us(request):
     return render(request,'sspn_portfolio_website/contact.html')
+
+def contact_us_submit(request):
+    if request.method == "POST":
+        yourName = request.POST['yourName']
+        yourEmail = request.POST['yourEmail']
+        yourPhone = request.POST['yourPhone']
+        comments = request.POST['comments']
+    send_mail(yourName,yourEmail,'amitv.mumbaii@gmail.com',['sangramtambe2211@gmail.com'],fail_silently=False,)
+    
+    return HttpResponseRedirect(reverse('sspn_portfolio_website:contact_us_success'))
+
+def contact_us_success(request):
+    return render(request, 'sspn_portfolio_website/contact_us_success.html')
 
 def blog_list(request):
     return render(request,'sspn_portfolio_website/blog.html')

@@ -31,9 +31,13 @@
         <div class="modal-content"></div>
     </div>
 </div>
-<h1>Team</h1>
-<hr>
+
 <div>
+<hr>
+
+                <h2>Team<span style="float: right"><button class="create_new_teammember btn btn-info">Add a new Team Member</button></span></h2>
+
+        <hr>
 {% if team_sspn %}
     <table id="test_table" class="display" style="width: 100%">
         <thead>
@@ -105,6 +109,9 @@
 {% block extrascript %}
 <script type="text/javascript">
     $(function() {
+        $(".create_new_teammember").modalForm({
+            formURL: "{% url 'sspn_lead_manager_app:add_new_team_member' %}"
+            });
         $(".update-lead").each(function() {
             $(this).modalForm({
                 formURL: $(this).data('id')
