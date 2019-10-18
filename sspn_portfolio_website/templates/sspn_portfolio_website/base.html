@@ -101,7 +101,7 @@
         <div id="mobile-menu" class="mobile-menu-light">
             <div class="mCustomScrollbar light" data-mcs-theme="minimal-dark">
                 <div class="header-mobile-menu hmm-v1">
-                    <span class="lnr lnr-phone-handset icon-set-1 icon-xs"></span> <span class="sub-text-icon text-middle"><strong>022-66981252</strong></span></span>
+                 <a href="tel:022-66981252"><span class="sub-text-icon text-middle"><strong>022-66981252</strong></span></a>
                     <a href="{% url 'sspn_portfolio_website:contact_us' %}" class="ot-btn btn-rounded btn-hightlight-color">Contact Now</a>
                 </div> <!-- Mobile Menu -->
                 <ul>
@@ -167,7 +167,7 @@
             </nav> <!-- End Navi Desktop -->
             <div class="navi-right">
                 <ul>
-                    <li><span class="sub-text-icon text-middle sub-text-middle">022-66981252</span></li>
+                    <li> <a href="tel:022-66981252"><span class="sub-text-icon text-middle sub-text-middle">022-66981252</span></a></li>
                     <li>
                         <a href="{% url 'sspn_portfolio_website:contact_us' %}" class="ot-btn btn-rounded btn-hightlight-color" style="background-color: #df2e1b">Contact Now</a>
                     </li>
@@ -188,17 +188,17 @@
                             <a href="{% url 'sspn_portfolio_website:index' %}"><img src="{% static 'sspn_portfolio_website/images/Header/logo_sspn.png' %}" class="img-responsive" alt="Image"></a>
                             <ul class="clearfix">
                                 <br>
-                                <li><a href="{% url 'sspn_portfolio_website:microfinance' %}">Microfinance</a></li>
-                                <li><a href="{% url 'sspn_portfolio_website:instantsalary' %}">Instant Salary</a></li>
-                                <li><a href="{% url 'sspn_portfolio_website:consumerfinance' %}">Consumer Finance</a></li>
+                                <li><a href="{% url 'sspn_portfolio_website:microfinance' product_name="MicroFinance" %}">Microfinance</a></li>
+                                <li><a href="{% url 'sspn_portfolio_website:instantsalary' product_name="InstantSalary" %}">Instant Salary</a></li>
+                                <li><a href="{% url 'sspn_portfolio_website:consumerfinance' product_name="ConsumerFinance" %}">Consumer Finance</a></li>
                             </ul>
                         </div>
                         <div class="footer-col-2">
                             <h3 class="text-white">Contact us</h3>
                             <div class="border-2-side">
                                 <p> <b>Register office :</b> Office No.2, Plot No 192, Vaintheya CHS Ltd ,S V Road, VileParle (West)</p>
-                                <p><span>Phone: 022-66981252</span></p>
-                                <p><span>Email: info@sspnfin.com</span></p>
+                                <p><a href="tel:022-66981252"><span>Phone: 022-66981252</span></a></p>
+                                <p> <a href="mailto:info@sspnfin.com"><span>Email: info@sspnfin.com</span></a></p>
                             </div>
                         </div>
                         <div class="footer-col-3">
@@ -220,7 +220,6 @@
                             <li><a href="{% url 'sspn_portfolio_website:product_list' %}">Products</a></li>
                             <li><a href="{% url 'sspn_portfolio_website:about_us' %}">About Us</a></li>
                             <li><a href="{% url 'sspn_portfolio_website:contact_us' %}">Contact Us</a></li>
-                            <li><a href="{% url 'sspn_portfolio_website:blog_list' %}">Blogs</a> </li>
                             <li><a href="{% url 'sspn_portfolio_website:career' %}">Career </a></li>
                         </ul>
                     </div>

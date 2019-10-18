@@ -38,8 +38,8 @@
                 <div class="row">
 
                     <div class="col-md-12 right-contact">
-                        <h4>Please fill the following details and Our Team will get in touch within 24 Hours</h4>
-                        <form class="form-inline form-contact-finance form-contact-2" name="registration" method="post" action="{% url 'sspn_portfolio_website:signup_registeration_form_submit' product_name=product_name %}">
+                        <h4>Please fill the following details for {{product_name}} and Our Team will get in touch within 24 Hours</h4>
+                        <form class="form-inline form-contact-finance form-contact-2" name="registration" method="post" action="{% url 'sspn_portfolio_website:signup_registeration_form_submit' product_name='product_name' %}">
                          {% csrf_token %}   
                             <div class="row">
                                 <div class="form-group col-sm-12  ">
@@ -50,6 +50,11 @@
                                 </div>
                                 <div class="form-group col-sm-12 ">
                                     <input type="text" pattern="(7|8|9)\d{9}" oninvalid="setCustomValidity('Wrong Number.Please Enter Valid Number ')" onchange="try{setCustomValidity('')}catch(e){}" class="form-control" name="yourPhone" id="yourPhone" placeholder="Your Phone Number" required>
+                                </div>
+                                <div class="form-group col-sm-12  ">
+                                <select class="form-control" name="product_interested" id="product_interested" style="width: 100%;height: 50px">
+                                        <option>{{product_name}}</option>       
+                                </select>
                                 </div>
                             </div>
                             <button type="submit" class="ot-btn large-btn btn-rounded btn-block btn-main-color btn-submit">Get Connected</button>

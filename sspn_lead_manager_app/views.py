@@ -111,12 +111,13 @@ def team_sspn(request):
     return render(request,'sspn_lead_manager_app/team_sspn.html',data)
     
 def user_profile(request):
-    user_name = request.user.username 
+    """ user_name = request.user.username 
     user_email = request.user.email
     user_id = request.user.pk
     data = {'user_name':user_name,
     'user_email':user_email,
-    'user_id':user_id}
+    'user_id':user_id} """
+    data={}
     return render(request,'sspn_lead_manager_app/user_profile.html',data)
 
 

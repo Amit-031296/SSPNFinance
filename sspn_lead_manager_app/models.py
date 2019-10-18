@@ -15,9 +15,9 @@ class AllLeads(models.Model):
                         ('Business','Business'),
                         ('Self Employed','Self Employed'),
                         ('Other','Other'))
-        product_type_choices=(('Micro Finance','Micro Finance'),
-                        ('Instant Salary','Instant Salary'),
-                        ('Consumer Finance','Consumer Finance'))
+        product_type_choices=(('MicroFinance','MicroFinance'),
+                        ('InstantSalary','InstantSalary'),
+                        ('ConsumerFinance','ConsumerFinance'))
         status_type_choices=(('All Status','All Status'),
                         ('Pending Status','Pending Status'),
                         ('In Process Status','In Process Status'),

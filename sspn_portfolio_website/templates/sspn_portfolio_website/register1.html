@@ -38,11 +38,12 @@
                 <div class="row">
 
                     <div class="col-md-12 right-contact">
-                        <h4>Thank You for your details. For more details about Microfinance please give following details </h4>
+                        <h4>Thank You for your details. For more details about {{product_name}} please give following details </h4>
                         <form class="form-inline form-contact-finance form-contact-2" name="contact" method="post" action="{% url 'sspn_portfolio_website:detailed_registration_submit' pk=user_pk %}">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="form-group col-sm-12  ">
+                                <br>
                                 <select class="form-control" name="yourCity" id="yourCity" style="width: 100%;height: 50px">
                                         <option>Mumbai</option>
                                         <option>Delhi</option>
@@ -52,7 +53,9 @@
                                         <option>Other</option>
                                     </select>
                                 </div>
+                                
                                 <div class="form-group col-sm-12 ">
+                                    <br>
                                     <select class="form-control" name="yourprofession" id="yourprofession" style="width: 100%;height: 50px">
                                         <option>Salaried</option>
                                         <option>Business</option>
@@ -60,7 +63,9 @@
                                         <option>Other</option>
                                     </select>
                                 </div>
+                                
                                 <div class="form-group col-sm-12 ">
+                                <br>
                                     <input type="text" class="form-control" name="yourCompany" id="yourCompany" placeholder="Your Company">
                                 </div>
                             </div>

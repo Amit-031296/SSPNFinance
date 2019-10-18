@@ -39,9 +39,9 @@
         <div class="row">
             <div class="col-md-3 slidebar">
                 <div class="list-group">
-                    <a href="{% url 'sspn_portfolio_website:microfinance' %}" class="list-group-item active">Microfinance</a>
-                    <a href="{% url 'sspn_portfolio_website:instantsalary' %}" class="list-group-item">Instant Salary</a>
-                    <a href="{% url 'sspn_portfolio_website:consumerfinance' %}" class="list-group-item">Consumer Finance</a>
+                    <a href="{% url 'sspn_portfolio_website:microfinance' product_name='MicroFinance' %}" class="list-group-item active">Microfinance</a>
+                    <a href="{% url 'sspn_portfolio_website:instantsalary' product_name='InstantSalary' %}" class="list-group-item">Instant Salary</a>
+                    <a href="{% url 'sspn_portfolio_website:consumerfinance' product_name='ConsumerFinance' %}" class="list-group-item">Consumer Finance</a>
                 </div>
             </div> <!-- End col slidebar -->
             <div class="col-md-9 services-detail-content">
@@ -98,7 +98,7 @@ The Loan Origination Process
             <div class="col-md-12">
                 <div class="quote-warp">
                     <div class="quote-text">
-                        <h2> We are focused on semi urban and rural area for Microfinance <a href="{% url 'sspn_portfolio_website:signup_registration' product_name='MicroFinance' %}" class="ot-btn large-btn btn-rounded btn-hightlight-color">Get Connect</a></h2>
+                        <h2> We are focused on semi urban and rural area for Microfinance <a href="{% url 'sspn_portfolio_website:signup_registration' product_name=product_name %}" class="ot-btn large-btn btn-rounded btn-hightlight-color">Get Connect</a></h2>
 
                     </div>
                 </div>
