@@ -20,10 +20,10 @@ class AllLeads(models.Model):
         product_type_choices=(('MicroFinance','MicroFinance'),
                         ('InstantSalary','InstantSalary'),
                         ('ConsumerFinance','ConsumerFinance'))
-        status_type_choices=(('Pending Status','Pending Status'),
-                        ('In Process Status','In Process Status'),
-                        ('Approved Status','Approved Status'),
-                        ('Rejected Status','Rejected Status'))
+        status_type_choices=(('Pending','Pending'),
+                        ('InProcess','InProcess'),
+                        ('Approved','Approved'),
+                        ('Rejected','Rejected'))
         sr_no = models.IntegerField(default=1)
         full_name = models.CharField(max_length=920)
         gender = models.CharField(max_length=920,blank=True)
@@ -31,7 +31,7 @@ class AllLeads(models.Model):
         contact = models.CharField(max_length=12,blank=True)
         company_name = models.CharField(max_length=920,blank=True)
         product_interested_in = models.CharField(choices=product_type_choices,max_length=920,blank=True)
-        status = models.CharField(choices=status_type_choices,max_length=920,blank=True)
+        status = models.CharField(choices=status_type_choices,max_length=920,blank=True,default='Pending')
         date_of_entry = models.DateTimeField(default=timezone.now, null=True)
         city = models.CharField(choices=city_choices,max_length=920,blank=True)
         profession = models.CharField(choices=profession_type_choices,max_length=920,blank=True)

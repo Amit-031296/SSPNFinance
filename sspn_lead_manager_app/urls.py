@@ -39,31 +39,31 @@ path("index/" , views.home, name="index"),
 path("leads_collected/" , views.leads_collected, name="leads_collected"),
 
 #micro Finance Page Url
-path("micro_finance/" , views.micro_finance, name="micro_finance"),
+path("micro_finance/" , views.micro_finance, name="MicroFinance"),
 
 #home loan page Url
 path("home_loan/" , views.home_loan, name="home_loan"),
 
 #instant salary page url
-path("instant_salary/" , views.instant_salary, name="instant_salary"),
+path("instant_salary/" , views.instant_salary, name="InstantSalary"),
 
 #consumer finance page url
-path("consumer_finance/" , views.consumer_finance, name="consumer_finance"),
+path("consumer_finance/" , views.consumer_finance, name="ConsumerFinance"),
 
 #all status page url
 path("all_status/" , views.all_status, name="all_status"),
 
 #pending Status page url
-path("pending_status/" , views.pending_status, name="pending_status"),
+path("pending_status/" , views.pending_status, name="Pending"),
 
 #In Process Status page url
-path("in_process_status/" , views.in_process_status, name="in_process_status"),
+path("in_process_status/" , views.in_process_status, name="InProcess"),
 
 #Approved Status page url
-path("approved_status/" , views.approved_status, name="approved_status"),
+path("approved_status/" , views.approved_status, name="Approved"),
 
 #Rejected Status page url
-path("rejected_status/" , views.rejected_status, name="rejected_status"),
+path("rejected_status/" , views.rejected_status, name="Rejected"),
 
 #Team page url
 path("team_sspn/" , views.team_sspn, name="team_sspn"),
@@ -79,6 +79,10 @@ path("report_error/" , views.report_error, name="report_error"),
 # <------ Django Bootstrap Modal Urls ------>
 # <--- Lead CURD URLs ---
 #AllLeads-update
+path('update_product/<int:pk>',views.LeadProductUpdateView.as_view(), name='leads_product_update'),
+
+path('update_status/<int:pk>',views.LeadStatusUpdateView.as_view(), name='leads_status_update'),
+
 path('update/<int:pk>',views.LeadUpdateView.as_view(), name='leads_update'),
 
 #AllLeads-delete

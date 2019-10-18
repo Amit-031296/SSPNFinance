@@ -100,7 +100,7 @@ def all_status(request):
 @login_required(login_url='/user_login')
 def approved_status(request):
     user_role = request.user.role 
-    approved_status = AllLeads.objects.all().filter(status='Approved Status')
+    approved_status = AllLeads.objects.all().filter(status='Approved')
     data = {'approved_status':approved_status,'user_role':user_role}
     return render(request,'sspn_lead_manager_app/approved_status.html',data)
 
@@ -124,7 +124,7 @@ def home_loan(request):
 @login_required(login_url='/user_login')
 def in_process_status(request):
     user_role = request.user.role 
-    in_process_status = AllLeads.objects.all().filter(status='In Process Status')
+    in_process_status = AllLeads.objects.all().filter(status='InProcess')
     data = {'in_process_status':in_process_status,'user_role':user_role}
     return render(request,'sspn_lead_manager_app/in_process_status.html',data)    
 
@@ -153,14 +153,14 @@ def micro_finance(request):
 @login_required(login_url='/user_login')
 def pending_status(request):
     user_role = request.user.role 
-    pending_status = AllLeads.objects.all().filter(status='Pending Status')
+    pending_status = AllLeads.objects.all().filter(status='Pending')
     data = {'pending_status':pending_status,'user_role':user_role}
     return render(request,'sspn_lead_manager_app/pending_status.html',data)
     
 @login_required(login_url='/user_login')
 def rejected_status(request):
     user_role = request.user.role
-    rejected_status = AllLeads.objects.all().filter(status='Rejected Status')
+    rejected_status = AllLeads.objects.all().filter(status='Rejected')
     data = {'rejected_status':rejected_status,'user_role':user_role}
     return render(request,'sspn_lead_manager_app/rejected_status.html',data)
 
@@ -188,6 +188,28 @@ def user_profile(request):
     return render(request,'sspn_lead_manager_app/user_profile.html',data)
 
 @method_decorator(login_required, name='dispatch')
+class LeadProductUpdateView(BSModalUpdateView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/update_entry.html'
+    form_class = AllLeadsForm
+    success_message = 'Success: Entry was updated.'
+    def get_success_url(self,**kwargs):
+        leads_object = AllLeads.objects.get(pk=self.kwargs['pk'])
+        product_name = leads_object.product_interested_in
+        return reverse_lazy('sspn_lead_manager_app:'+product_name)
+
+@method_decorator(login_required, name='dispatch')
+class LeadStatusUpdateView(BSModalUpdateView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/update_entry.html'
+    form_class = AllLeadsForm
+    success_message = 'Success: Entry was updated.'
+    def get_success_url(self,**kwargs):
+        leads_object = AllLeads.objects.get(pk=self.kwargs['pk'])
+        status_name = leads_object.status
+        return reverse_lazy('sspn_lead_manager_app:'+status_name)
+
+@method_decorator(login_required, name='dispatch')
 class LeadUpdateView(BSModalUpdateView):
     model = AllLeads
     template_name = 'sspn_lead_manager_app/update_entry.html'
@@ -200,7 +222,12 @@ class LeadDeleteView(BSModalDeleteView):
     model = AllLeads
     template_name = 'sspn_lead_manager_app/delete_entry.html'
     success_message = 'Success: Entry was deleted.'
-    success_url = reverse_lazy('sspn_lead_manager_app:leads_collected')
+    def get_success_url(self,**kwargs):
+        Transport_Model_Object = Transport.objects.get(pk=self.kwargs['pk'])
+        vendor_id = int(str(Transport_Model_Object.service_vendor_id))
+        payment_status = Transport_Model_Object.service_vendor_payment_status
+        return reverse_lazy('sspn_lead_manager_app:leads_collected', kwargs={'vendor_id': vendor_id,'payment_status':payment_status })
+
 
 @method_decorator(login_required, name='dispatch')
 class TeamUpdateView(BSModalUpdateView):
