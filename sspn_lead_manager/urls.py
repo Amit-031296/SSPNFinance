@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sspn_lead_manager_app.urls')),
     path('', include('sspn_portfolio_website.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+handler404 = 'sspn_lead_manager_app.views.error_404_view'

@@ -45,9 +45,9 @@
                 <th scope="col">Sr. No</th>
                 <th scope="col">User Name</th>
                 <th scope="col">Role</th>
-                <th scope="col">Creation Date</th>
                 <th scope="col">Email</th>
-                <th scope="col">Status</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Creation Date</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -55,9 +55,9 @@
                 <th>Sr. No</th>
                 <th>User Name</th>
                 <th>Role</th>
-                <th>Creation Date</th>
                 <th>Email</th>
-                <th>Status</th>
+                <th>Contact</th>
+                <th>Creation Date</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -65,12 +65,21 @@
         <tbody>
         {% for teamsspn in team_sspn %}
             <tr>
-                <td>{{ teamsspn.sr_no }}</td>
-                <td>{{ teamsspn.full_name }}</td>
-                <td>{{ teamsspn.role }}</td>
-                <td>{{ teamsspn.creation_date }}</td>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ teamsspn.username }}</td>
+                <td>
+                {% if teamsspn.role == 3 %}
+                Team 
+                {% elif teamsspn.role == 2 %}
+                Admin 
+                {% else %}
+                Super Admin 
+                {% endif %}</td>
                 <td>{{ teamsspn.email }}</td>
-                <td>{{ teamsspn.status }}</td>
+                <td>{{ teamsspn.contact }}</td>
+                <td>{{ teamsspn.date_joined }}</td>
+                
+                
                 <td>
                             <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:teamupdate' teamsspn.pk %}">
                                 <span class="fa fa-edit"></span>
@@ -90,9 +99,9 @@
                 <th>Sr. No</th>
                 <th>User Name</th>
                 <th>Role</th>
-                <th>Creation Date</th>
                 <th>Email</th>
-                <th>Status</th>
+                <th>Contact</th>
+                <th>Creation Date</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>

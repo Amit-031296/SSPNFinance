@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from datetime import datetime
+from django.contrib.auth.models import AbstractUser
+from model_utils.managers import InheritanceManager
 
 # Create your models here.
 
@@ -18,19 +20,11 @@ class AllLeads(models.Model):
         product_type_choices=(('MicroFinance','MicroFinance'),
                         ('InstantSalary','InstantSalary'),
                         ('ConsumerFinance','ConsumerFinance'))
-        status_type_choices=(('All Status','All Status'),
-                        ('Pending Status','Pending Status'),
+        status_type_choices=(('Pending Status','Pending Status'),
                         ('In Process Status','In Process Status'),
                         ('Approved Status','Approved Status'),
                         ('Rejected Status','Rejected Status'))
-        def sr_number_genrator():
-                latest_object = AllLeads.objects.latest('date_of_entry')
-                latest_sr_no = latest_object.sr_no
-                if latest_object == None:
-                        return 1
-                else:
-                        return (latest_sr_no+1)
-        sr_no = models.IntegerField(default=sr_number_genrator)
+        sr_no = models.IntegerField(default=1)
         full_name = models.CharField(max_length=920)
         gender = models.CharField(max_length=920,blank=True)
         email = models.EmailField(max_length=920)
@@ -49,7 +43,7 @@ class AllLeads(models.Model):
             verbose_name_plural = "All Leads Lists"
             verbose_name = "Lead"
 
-class Team(models.Model):
+class Team(AbstractUser):
     SUPER_ADMIN = 1
     ADMIN = 2
     TEAM = 3
@@ -58,13 +52,9 @@ class Team(models.Model):
       (SUPER_ADMIN,'super_admin'),
       (TEAM,'team')
     )
-    full_name = models.CharField(max_length=920)
-    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES)
-    creation_date = models.DateTimeField(default=timezone.now, null=True)
-    email = models.EmailField(max_length=920)
-    contact = models.IntegerField()
-    company_name = models.CharField(max_length=920)
-    status = models.CharField(max_length=920)
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES,default=3)
+    contact = models.CharField(blank=True,max_length=920)
+
     
     def __str__(self):
             return str(self.pk)

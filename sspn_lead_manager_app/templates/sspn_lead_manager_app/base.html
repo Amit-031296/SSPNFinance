@@ -60,10 +60,10 @@
                     <a href="{% url 'sspn_lead_manager_app:index' %}">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:leads_collected' %}">Leads Collected</a>
+                    <a href="{% url 'sspn_lead_manager_app:leads_collected' %}">Data Collected</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leads by Product</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data by Product</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="{% url 'sspn_lead_manager_app:micro_finance' %}">Micro finance</a>
@@ -77,7 +77,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Leads By Status</a>
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Data By Status</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
                             <a href="{% url 'sspn_lead_manager_app:all_status' %}">All</a>
@@ -96,9 +96,11 @@
                         </li>
                     </ul>
                 </li>
+                {% if user_role == 1 %}
                 <li>
                     <a href="{% url 'sspn_lead_manager_app:team_sspn' %}">Team</a>
                 </li>
+                {% endif %}
                 <li>
                     <a href="{% url 'sspn_lead_manager_app:user_profile' %}">My Profile</a>
                 </li>
@@ -108,7 +110,7 @@
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="{% url 'sspn_lead_manager_app:login' %}" class="btn btn-light">
+                    <a href="{% url 'sspn_lead_manager_app:sign_out' %}" class="btn btn-light">
                         <font color="#df2e1c">Logout</font>
                     </a>
                 </li>

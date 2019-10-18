@@ -23,9 +23,7 @@ class AllLeadsAdmin(admin.ModelAdmin):
 class TeamAdmin(admin.ModelAdmin):
     list_display = [
         "pk",
-        "full_name",
-        "role",
-        "company_name"
+        "role" 
     ]
 
 admin.site.register(AllLeads,AllLeadsAdmin)

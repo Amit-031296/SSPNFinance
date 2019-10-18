@@ -52,6 +52,7 @@
                 <th scope="col">Your Id</th>
                 <th scope="col">Your UserName</th>
                 <th scope="col">Your Email</th>
+                <th scope="col">Contact</th>
                 <th scope="col">Update</th>
             </tr>
         </thead>
@@ -61,6 +62,7 @@
                 <td>{{ user_id }}</td>
                 <td>{{ user_name }}</td>
                 <td>{{ user_email}}</td>
+                <td>{{contact}}</td>
                 <td>
                             <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:teamupdate' user.pk %}">
                                 <span class="fa fa-edit"></span>

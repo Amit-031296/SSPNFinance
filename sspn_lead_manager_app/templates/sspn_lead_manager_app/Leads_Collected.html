@@ -34,7 +34,7 @@
 </div>
 
         
-<h1>All Leads</h1>
+<h1>All Data From Survey Form</h1>
 <hr>
 <div>
 {% if leads %}
@@ -50,7 +50,9 @@
                 <th scope="col">Product Interested In</th>
                 <th scope="col">Status</th>
                 <th scope="col">Edit</th>
+                {% if user_role == 1 %}
                 <th scope="col">Delete</th>
+                {% endif %}
             </tr>
             <tr>
                 <th>Sr. No</th>
@@ -62,7 +64,9 @@
                 <th>Product Interested In</th>
                 <th>Status</th>
                 <th>Edit</th>
+                {% if user_role == 1 %}
                 <th>Delete</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -81,30 +85,16 @@
                                 <span class="fa fa-edit"></span>
                             </button>
                         </td>
-                        
+                        {% if user_role == 1 %}
                         <td>
                             <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' lead.pk %}">
                                 <span class="fa fa-trash"></span>
                             </button>
                         </td>
+                        {% endif %}
             </tr>
             {% endfor %}
             </tbody>
-            
-        <tfoot>
-            <tr>
-                <th>Sr. No</th>
-                <th>Full Name</th>
-                <th>Gender</th>
-                <th>Email</th>
-                <th>Contact</th>
-                <th>Company Name</th>
-                <th>Product Interested In</th>
-                <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </tfoot>
     </table>
     {% else %}
             <p class="no-leads text-primary">No entry added yet.</p>

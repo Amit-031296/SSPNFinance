@@ -33,10 +33,12 @@
                         <div class="page-links">
                             <a href="{% url 'sspn_lead_manager_app:login' %}">Login</a><a href="{% url 'sspn_lead_manager_app:register' %}" class="active">Register</a>
                         </div>
-                        <form method="post" action="{% url 'sspn_lead_manager_app:index' %}">
-                            <input class="form-control" type="text" name="name" placeholder="User Name" required>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                        <form method="post" action="{% url 'sspn_lead_manager_app:register' %}">
+                         {% csrf_token %}
+                            <input class="form-control" type="text" name="username" placeholder="User Name" required>
+                            
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>

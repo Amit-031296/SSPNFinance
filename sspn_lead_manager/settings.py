@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sspn_lead_manager_app',
+    'sspn_lead_manager_app.apps.SspnLeadManagerAppConfig',
     'sspn_portfolio_website',
     'bootstrap_modal_forms',
     'widget_tweaks',
@@ -138,3 +138,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+AUTH_USER_MODEL = "sspn_lead_manager_app.Team"
+
+LOGIN_URL = '/user_login'

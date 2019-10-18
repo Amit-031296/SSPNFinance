@@ -18,8 +18,7 @@ class AllLeadsForm(BSModalForm):
 class TeamForm(BSModalForm):
     class Meta:
         model = Team
-        fields=('full_name',
+        fields=('role',
+        'username',
         'email',
-        'role',
-        'contact',
-        'status')
+        'contact')

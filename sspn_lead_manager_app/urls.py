@@ -3,7 +3,7 @@
 from django.contrib import admin
 
 #path,include,re_path
-from django.urls import path, include,re_path
+from django.urls import path, include,re_path,reverse_lazy
 
 #</----imported libraries ------>
 
@@ -19,10 +19,13 @@ app_name = 'sspn_lead_manager_app'
 urlpatterns = [
 #<----- authentication URLs ------>
 #Login page url
-path("login/" , views.login, name="login"),
+path("login/" , views.user_sign_in, name="login"),
 
 #Register page url
 path("register/" , views.register, name="register"),
+
+# url for sign out view
+path('sign_out/', views.user_sign_out, name = 'sign_out'),
 
 #ForgetPassword url
 path("forget_password/" , views.forget_password, name="forget_password"),
