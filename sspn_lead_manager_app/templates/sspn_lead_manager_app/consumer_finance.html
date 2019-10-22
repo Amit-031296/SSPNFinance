@@ -75,13 +75,13 @@
                 <td>{{ consumerfinance.company_name }}</td>
                 <td>{{ consumerfinance.status }}</td>
                 <td>
-                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' consumerfinance.pk %}">
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_product_update' consumerfinance.pk %}">
                                 <span class="fa fa-edit"></span>
                             </button>
                         </td>
                         {% if user_role == 1 %}
                         <td>
-                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' consumerfinance.pk %}">
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_product_delete' consumerfinance.pk %}">
                                 <span class="fa fa-trash"></span>
                             </button>
                         </td>

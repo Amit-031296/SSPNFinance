@@ -75,13 +75,13 @@
                 <td>{{ instantsalary.company_name }}</td>
                 <td>{{ instantsalary.status }}</td>
                 <td>
-                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' instantsalary.pk %}">
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_product_update' instantsalary.pk %}">
                                 <span class="fa fa-edit"></span>
                             </button>
                         </td>
                         {% if user_role == 1 %}
                         <td>
-                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' instantsalary.pk %}">
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_product_delete' instantsalary.pk %}">
                                 <span class="fa fa-trash"></span>
                             </button>
                         </td>

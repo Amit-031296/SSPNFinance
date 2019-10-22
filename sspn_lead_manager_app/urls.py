@@ -85,8 +85,17 @@ path('update_status/<int:pk>',views.LeadStatusUpdateView.as_view(), name='leads_
 
 path('update/<int:pk>',views.LeadUpdateView.as_view(), name='leads_update'),
 
+path('update_all_status/<int:pk>',views.LeadAllStatusUpdateView.as_view(), name='leads_all_status_update'),
+
 #AllLeads-delete
+path('delete_product/<int:pk>',views.LeadProductDeleteView.as_view(), name='leads_product_delete'),
+
+path('delete_status/<int:pk>',views.LeadStatusDeleteView.as_view(), name='leads_status_delete'),
+
 path('delete/<int:pk>',views.LeadDeleteView.as_view(), name='leads_delete'),
+
+path('delete_all_status/<int:pk>',views.LeadAllStatusDeleteView.as_view(), name='leads_all_status_delete'),
+
 # </--- Lead CURD URLs ---
 
 # <--- Team CURD URLs ---

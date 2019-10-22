@@ -218,15 +218,48 @@ class LeadUpdateView(BSModalUpdateView):
     success_url = reverse_lazy('sspn_lead_manager_app:leads_collected')
 
 @method_decorator(login_required, name='dispatch')
-class LeadDeleteView(BSModalDeleteView):
+class LeadAllStatusUpdateView(BSModalUpdateView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/update_entry.html'
+    form_class = AllLeadsForm
+    success_message = 'Success: Entry was updated.'
+    success_url = reverse_lazy('sspn_lead_manager_app:all_status')
+
+
+@method_decorator(login_required, name='dispatch')
+class LeadProductDeleteView(BSModalDeleteView):
     model = AllLeads
     template_name = 'sspn_lead_manager_app/delete_entry.html'
     success_message = 'Success: Entry was deleted.'
     def get_success_url(self,**kwargs):
-        Transport_Model_Object = Transport.objects.get(pk=self.kwargs['pk'])
-        vendor_id = int(str(Transport_Model_Object.service_vendor_id))
-        payment_status = Transport_Model_Object.service_vendor_payment_status
-        return reverse_lazy('sspn_lead_manager_app:leads_collected', kwargs={'vendor_id': vendor_id,'payment_status':payment_status })
+        leads_object = AllLeads.objects.get(pk=self.kwargs['pk'])
+        product_name = leads_object.product_interested_in
+        return reverse_lazy('sspn_lead_manager_app:'+product_name)
+
+@method_decorator(login_required, name='dispatch')
+class LeadStatusDeleteView(BSModalDeleteView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/delete_entry.html'
+    success_message = 'Success: Entry was deleted.'
+    def get_success_url(self,**kwargs):
+        leads_object = AllLeads.objects.get(pk=self.kwargs['pk'])
+        status_name = leads_object.status
+        return reverse_lazy('sspn_lead_manager_app:'+status_name)
+
+
+@method_decorator(login_required, name='dispatch')
+class LeadDeleteView(BSModalDeleteView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/delete_entry.html'
+    success_message = 'Success: Entry was deleted.'
+    success_url = reverse_lazy('sspn_lead_manager_app:leads_collected')
+
+@method_decorator(login_required, name='dispatch')
+class LeadAllStatusDeleteView(BSModalDeleteView):
+    model = AllLeads
+    template_name = 'sspn_lead_manager_app/delete_entry.html'
+    success_message = 'Success: Entry was deleted.'
+    success_url = reverse_lazy('sspn_lead_manager_app:all_status')
 
 
 @method_decorator(login_required, name='dispatch')

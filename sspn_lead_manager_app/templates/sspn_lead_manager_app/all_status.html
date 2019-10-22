@@ -77,13 +77,13 @@
                 <td>{{ allstatus.company_name }}</td>
                 <td>{{ allstatus.product_interested_in }}</td>
                 <td>
-                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_update' allstatus.pk %}">
+                            <button type="button" class="update-lead btn btn-sm btn-primary" data-id="{% url 'sspn_lead_manager_app:leads_all_status_update' allstatus.pk %}">
                                 <span class="fa fa-edit"></span>
                             </button>
                         </td>
                         {% if user_role == 1 %}
                         <td>
-                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_delete' allstatus.pk %}">
+                            <button type="button" class="delete-lead btn btn-sm btn-danger" data-id="{% url 'sspn_lead_manager_app:leads_all_status_delete' allstatus.pk %}">
                                 <span class="fa fa-trash"></span>
                             </button>
                         </td>
